@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍰 Cake Recipe Tool</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        h1, h2, h3, h4 {
+            color: #4CAF50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        p {
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .recipe { 
+            margin-bottom: 25px; 
+            border: 1px solid #e0e0e0; 
+            padding: 20px; 
+            border-radius: 8px;
+            background-color: #fdfdfd;
+            display: none;
+        }
+        .recipe.visible {
+            display: block;
+        }
+        .measure { 
+            margin-bottom: 30px; 
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fdfdfd;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .measure img, .measure video { 
+            width: 200px; 
+            height: auto; 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex-shrink: 0; 
+        }
+        .measure div {
+            flex-grow: 1;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9em;
+        }
+        .search-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .search-container input {
+            padding: 12px 20px;
+            width: 70%;
+            max-width: 500px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .recipe-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #f0fff0;
+        }
+        .recipe-content {
+            display: none;
+            margin-top: 20px;
+        }
+        .recipe-content.visible {
+            display: block;
+        }
+        .ingredients, .instructions {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            text-align: left;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .measure {
+                flex-direction: column;
+                text-align: center;
+            }
+            .measure img, .measure video {
+                width: 100%;
+                max-width: 250px;
+            }
+            .recipe-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍰 Cake Recipe Tool</h1>
+        <p style="text-align: center; margin-bottom: 40px;">Find the perfect recipe and learn how to measure ingredients correctly.</p>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for cake type (e.g., chocolate, carrot, cornmeal...)">
+        </div>
+        <h2>Cake Types</h2>
+        <div class="recipe-grid" id="recipeGrid">
+            <!-- Cake type cards will be inserted here via JavaScript -->
+        </div>
+        <div id="recipeContent" class="recipe-content">
+            <!-- Recipe content will be inserted here via JavaScript -->
+        </div>
+        <h2>Measurement Guide with Examples</h2>
+        <div class="measure">
+            <img src="Generated Image August 28, 2025 - 9_31AM.jpeg" alt="Measuring cup">
+            <div>
+                <h3>Cup (240ml)</h3>
+                <p>Use for measuring dry and liquid ingredients. Fill completely without packing, and level off with a knife.</p>
+            </div>
+        </div>
+        <div class="measure">
+            <img src="Generated Image August 28, 2025 - 9_31AM (1).jpeg" alt="Tablespoon with leveled sugar">
+            <div>
+                <h3>Tablespoon (15ml)</h3>
+                <p>Use for smaller quantities, such as baking powder or extracts. Fill and level with the back of a knife.</p>
+            </div>
+        </div>
+        <div class="measure">
+            <img src="Generated Image August 28, 2025 - 9_31AM (3).jpeg" alt="Kitchen scale">
+            <div>
+                <h3>Kitchen Scale</h3>
+                <p>For greater precision, weigh your ingredients. Measurements in grams are more accurate than volumes.</p>
+            </div>
+        </div>
+        <div class="measure">
+            <video controls>
+                <source src="Utensílios Essenciais para Fazer Bolo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div>
+                <h3>Demonstration Video</h3>
+                <p>Watch a practical guide on how to use essential tools for making cakes.</p>
+            </div>
+        </div>
+        <footer>
+            <p>Cake Recipe Tool © 2025 - All rights reserved</p>
+            <p style="margin-top: 20px; font-size: 1em; color: #4CAF50;">
+                <strong>If you'd like me to continue producing content like this on Brazilian cuisine, please consider supporting me!</strong><br>
+                PIX: 71926313372<br>
+                PayPal: ocelioaviap@gmail.com
+            </p>
+        </footer>
+    </div>
+    <script>
+        // Recipe data
+        const recipes = [
+            {
+                id: 1,
+                name: "Chocolate Cake",
+                type: "chocolate",
+                ingredients: [
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1 cup cocoa powder",
+                    "1 tablespoon baking powder",
+                    "1/2 cup oil",
+                    "2 eggs",
+                    "1 cup milk"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Mix dry ingredients in a bowl.",
+                    "Add wet ingredients and mix well.",
+                    "Pour batter into a greased pan.",
+                    "Bake for 35-40 minutes."
+                ]
+            },
+            {
+                id: 2,
+                name: "Carrot Cake",
+                type: "carrot",
+                ingredients: [
+                    "3 medium carrots",
+                    "3 eggs",
+                    "1 cup oil",
+                    "2 cups sugar",
+                    "2 cups all-purpose flour",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend carrots, eggs, and oil in a blender.",
+                    "In a bowl, mix sugar and flour.",
+                    "Combine mixtures and add baking powder.",
+                    "Bake for approximately 40 minutes."
+                ]
+            },
+            {
+                id: 3,
+                name: "Orange Cake",
+                type: "orange",
+                ingredients: [
+                    "Juice and zest of 2 oranges",
+                    "3 eggs",
+                    "1 cup oil",
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend orange juice, eggs, oil, and sugar in a blender.",
+                    "Add flour and orange zest.",
+                    "Finally, add baking powder.",
+                    "Bake for 30-35 minutes."
+                ]
+            },
+            {
+                id: 4,
+                name: "Cornmeal Cake",
+                type: "cornmeal",
+                ingredients: [
+                    "2 cups cornmeal",
+                    "1 cup all-purpose flour",
+                    "3 eggs",
+                    "1 cup milk",
+                    "1 cup oil",
+                    "2 cups sugar",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend all ingredients in a blender, except baking powder.",
+                    "Add baking powder and gently mix.",
+                    "Pour into a greased and floured pan.",
+                    "Bake for approximately 40 minutes."
+                ]
+            },
+            {
+                id: 5,
+                name: "Corn Cake",
+                type: "corn",
+                ingredients: [
+                    "2 cans of drained corn kernels",
+                    "3 eggs",
+                    "1 cup milk",
+                    "1 cup oil",
+                    "2 cups sugar",
+                    "1 cup all-purpose flour",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend corn, eggs, milk, oil, and sugar in a blender.",
+                    "Transfer to a bowl and add flour and baking powder.",
+                    "Mix well and pour into a greased pan.",
+                    "Bake for 40-45 minutes."
+                ]
+            },
+            {
+                id: 6,
+                name: "Lemon Cake",
+                type: "lemon",
+                ingredients: [
+                    "3 eggs",
+                    "1 cup sugar",
+                    "1/2 cup oil",
+                    "Juice of 2 lemons",
+                    "Zest of 1 lemon",
+                    "2 cups all-purpose flour",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Beat eggs with sugar until light and fluffy.",
+                    "Add oil, lemon juice, and lemon zest.",
+                    "Incorporate flour and finally, baking powder.",
+                    "Bake for 30-35 minutes."
+                ]
+            },
+            {
+                id: 7,
+                name: "Coconut Cake",
+                type: "coconut",
+                ingredients: [
+                    "3 eggs",
+                    "2 cups sugar",
+                    "1 cup milk",
+                    "2 cups all-purpose flour",
+                    "100g shredded coconut",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Beat eggs with sugar until fluffy.",
+                    "Add milk and shredded coconut.",
+                    "Incorporate flour and baking powder.",
+                    "Bake for 35-40 minutes."
+                ]
+            },
+            {
+                id: 8,
+                name: "Vanilla Cake",
+                type: "vanilla",
+                ingredients: [
+                    "3 eggs",
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1 cup milk",
+                    "1/2 cup oil",
+                    "1 tablespoon baking powder",
+                    "1 teaspoon vanilla extract"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Beat eggs with sugar until pale.",
+                    "Add oil, milk, and vanilla.",
+                    "Incorporate flour and baking powder.",
+                    "Bake for 30-35 minutes."
+                ]
+            },
+            {
+                id: 9,
+                name: "Coffee Cake",
+                type: "coffee",
+                ingredients: [
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1 cup strong cooled coffee",
+                    "1/2 cup oil",
+                    "2 eggs",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Mix dry ingredients.",
+                    "Add wet ingredients and mix well.",
+                    "Pour into a greased pan.",
+                    "Bake for 35-40 minutes."
+                ]
+            },
+            {
+                id: 10,
+                name: "Apple Cake",
+                type: "apple",
+                ingredients: [
+                    "3 peeled and grated apples",
+                    "3 eggs",
+                    "1 cup sugar",
+                    "1/2 cup oil",
+                    "2 cups all-purpose flour",
+                    "1 tablespoon baking powder",
+                    "1 teaspoon ground cinnamon"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Mix grated apples with sugar.",
+                    "Add eggs and oil.",
+                    "Incorporate flour, cinnamon, and baking powder.",
+                    "Bake for 40 minutes."
+                ]
+            },
+            {
+                id: 11,
+                name: "Banana Cake",
+                type: "banana",
+                ingredients: [
+                    "6 mashed ripe bananas",
+                    "3 eggs",
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1/2 cup oil",
+                    "1 tablespoon baking powder",
+                    "1 teaspoon cinnamon"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Mix bananas with sugar and eggs.",
+                    "Add oil and cinnamon.",
+                    "Incorporate flour and baking powder.",
+                    "Bake for 40 minutes."
+                ]
+            },
+            {
+                id: 12,
+                name: "Passion Fruit Cake",
+                type: "passion fruit",
+                ingredients: [
+                    "1 cup passion fruit juice",
+                    "3 eggs",
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1/2 cup oil",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Beat eggs with sugar.",
+                    "Add oil and passion fruit juice.",
+                    "Incorporate flour and baking powder.",
+                    "Bake for 35 minutes."
+                ]
+            },
+            {
+                id: 13,
+                name: "White Chocolate Cake",
+                type: "white chocolate",
+                ingredients: [
+                    "200g melted white chocolate",
+                    "3 eggs",
+                    "1 cup sugar",
+                    "2 cups all-purpose flour",
+                    "1 cup milk",
+                    "1/2 cup butter",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Melt white chocolate in a double boiler.",
+                    "Beat butter with sugar.",
+                    "Add eggs, melted chocolate, and milk.",
+                    "Incorporate flour and baking powder.",
+                    "Bake for 35-40 minutes."
+                ]
+            },
+            {
+                id: 14,
+                name: "Walnut Cake",
+                type: "walnut",
+                ingredients: [
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1 cup chopped walnuts",
+                    "3 eggs",
+                    "1 cup milk",
+                    "1/2 cup oil",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Beat eggs with sugar.",
+                    "Add oil and milk.",
+                    "Incorporate flour, walnuts, and baking powder.",
+                    "Bake for 40 minutes."
+                ]
+            },
+            {
+                id: 15,
+                name: "Pineapple Cake",
+                type: "pineapple",
+                ingredients: [
+                    "2 cups chopped pineapple",
+                    "3 eggs",
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1/2 cup oil",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend pineapple in a blender.",
+                    "Mix with eggs, sugar, and oil.",
+                    "Add flour and baking powder.",
+                    "Bake for 35-40 minutes."
+                ]
+            },
+            {
+                id: 16,
+                name: "Yogurt Cake",
+                type: "yogurt",
+                ingredients: [
+                    "1 pot of plain yogurt",
+                    "3 measures (using the pot) of all-purpose flour",
+                    "2 measures of sugar",
+                    "1 measure of oil",
+                    "3 eggs",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Use the yogurt pot as your measuring cup.",
+                    "Mix all ingredients together.",
+                    "Beat well until you get a homogeneous batter.",
+                    "Bake for 35 minutes."
+                ]
+            },
+            {
+                id: 17,
+                name: "Almond Cake",
+                type: "almond",
+                ingredients: [
+                    "200g ground almonds",
+                    "4 eggs",
+                    "1 cup sugar",
+                    "1/2 cup all-purpose flour",
+                    "1 teaspoon baking powder",
+                    "Lemon zest"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Separate egg whites and yolks.",
+                    "Beat yolks with sugar.",
+                    "Add ground almonds, flour, and lemon zest.",
+                    "Beat egg whites until stiff peaks form and gently fold them in.",
+                    "Bake for 30-35 minutes."
+                ]
+            },
+            {
+                id: 18,
+                name: "Churros Cake",
+                type: "churros",
+                ingredients: [
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1 cup water",
+                    "1/2 cup butter",
+                    "3 eggs",
+                    "1 tablespoon baking powder",
+                    "Sugar and cinnamon for dusting"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Boil water with butter.",
+                    "Add flour all at once, stirring until it forms a ball.",
+                    "Let cool, then add eggs one at a time.",
+                    "Add sugar and baking powder.",
+                    "Bake for 35 minutes and dust with sugar and cinnamon."
+                ]
+            },
+            {
+                id: 19,
+                name: "Oatmeal Cake",
+                type: "oatmeal",
+                ingredients: [
+                    "2 cups rolled oats",
+                    "3 eggs",
+                    "1 cup brown sugar",
+                    "1 cup milk",
+                    "1/2 cup coconut oil",
+                    "1 tablespoon baking powder",
+                    "1 teaspoon cinnamon"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend oats in a blender until they become flour.",
+                    "Add remaining ingredients and blend well.",
+                    "Pour into a greased pan.",
+                    "Bake for 35-40 minutes."
+                ]
+            },
+            {
+                id: 20,
+                name: "Orange Chocolate Cake",
+                type: "orange chocolate",
+                ingredients: [
+                    "Juice and zest of 2 oranges",
+                    "3 eggs",
+                    "2 cups all-purpose flour",
+                    "1 cup sugar",
+                    "1/2 cup oil",
+                    "1/2 cup cocoa powder",
+                    "1 tablespoon baking powder"
+                ],
+                instructions: [
+                    "Preheat oven to 180°C (350°F).",
+                    "Blend orange juice, eggs, oil, and sugar.",
+                    "Divide the batter into two parts.",
+                    "To one part, add flour and orange zest.",
+                    "To the other part, add flour and cocoa powder.",
+                    "Layer alternately in the pan and bake for 40 minutes."
+                ]
+            }
+        ];
+        // Page initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            renderRecipeCards();
+            setupSearch();
+        });
+        // Render recipe cards
+        function renderRecipeCards() {
+            const recipeGrid = document.getElementById('recipeGrid');
+            recipeGrid.innerHTML = '';
+            recipes.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+                card.innerHTML = `
+                    <h3>${recipe.name}</h3>
+                    <p>Type: ${recipe.type}</p>
+                `;
+                card.addEventListener('click', () => showRecipe(recipe.id));
+                recipeGrid.appendChild(card);
+            });
+        }
+        // Set up search
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', filterRecipes);
+        }
+        // Filter recipes based on search text
+        function filterRecipes() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const recipeCards = document.querySelectorAll('.recipe-card');
+            recipeCards.forEach(card => {
+                const recipeName = card.querySelector('h3').textContent.toLowerCase();
+                const recipeType = card.querySelector('p').textContent.toLowerCase();
+                if (recipeName.includes(searchText) || recipeType.includes(searchText)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        // Show recipe details
+        function showRecipe(recipeId) {
+            const recipe = recipes.find(r => r.id === recipeId);
+            const recipeContent = document.getElementById('recipeContent');
+            recipeContent.innerHTML = `
+                <button class="back-button" onclick="hideRecipe()">← Back</button>
+                <h2>${recipe.name}</h2>
+                <div class="ingredients">
+                    <h3>Ingredients:</h3>
+                    <ul>
+                        ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="instructions">
+                    <h3>Instructions:</h3>
+                    <ol>
+                        ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+                    </ol>
+                </div>
+            `;
+            recipeContent.classList.add('visible');
+            document.getElementById('recipeGrid').style.display = 'none';
+            document.querySelector('h2').style.display = 'none'; // Hide "Cake Types" title
+        }
+        // Hide recipe details and show the list again
+        function hideRecipe() {
+            const recipeContent = document.getElementById('recipeContent');
+            recipeContent.classList.remove('visible');
+            document.getElementById('recipeGrid').style.display = 'grid';
+            document.querySelector('h2').style.display = 'block'; // Show "Cake Types" title
+            document.getElementById('searchInput').value = '';
+            filterRecipes(); // Show all cards again
+        }
+    </script>
+</body>
+</html>
