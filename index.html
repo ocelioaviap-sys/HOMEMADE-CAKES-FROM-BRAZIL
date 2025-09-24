@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍰 Cake Recipe Tool</title>
+    <meta name="google-site-verification" content="JKBUbnmmSnN0dn2HtwpM-mQQI2k5SvToAtI7OFMfHos" />
+    <title>🍰 Ferramenta de Receitas de Bolos</title>
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -151,511 +152,523 @@
 </head>
 <body>
     <div class="container">
-        <h1>🍰 Cake Recipe Tool</h1>
-        <p style="text-align: center; margin-bottom: 40px;">Find the perfect recipe and learn how to measure ingredients correctly.</p>
+        <h1>🍰 Ferramenta de Receitas de Bolos</h1>
+        <p style="text-align: center; margin-bottom: 40px;">Encontre a receita perfeita e aprenda a medir ingredientes corretamente.</p>
+
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for cake type (e.g., chocolate, carrot, cornmeal...)">
+            <input type="text" id="searchInput" placeholder="Busque por tipo de bolo (ex: chocolate, cenoura, fubá...)">
         </div>
-        <h2>Cake Types</h2>
+
+        <h2>Tipos de Bolo</h2>
         <div class="recipe-grid" id="recipeGrid">
-            <!-- Cake type cards will be inserted here via JavaScript -->
+            <!-- Os cards dos tipos de bolo serão inseridos via JavaScript -->
         </div>
+
         <div id="recipeContent" class="recipe-content">
-            <!-- Recipe content will be inserted here via JavaScript -->
+            <!-- O conteúdo da receita será inserido aqui via JavaScript -->
         </div>
-        <h2>Measurement Guide with Examples</h2>
+
+        <h2>Guia de Medidas com Exemplos</h2>
+
         <div class="measure">
-            <img src="Generated Image August 28, 2025 - 9_31AM.jpeg" alt="Measuring cup">
+            <img src="Generated Image August 28, 2025 - 9_31AM.jpeg" alt="Xícara medidora">
             <div>
-                <h3>Cup (240ml)</h3>
-                <p>Use for measuring dry and liquid ingredients. Fill completely without packing, and level off with a knife.</p>
+                <h3>Xícara (240ml)</h3>
+                <p>Use para medir ingredientes secos e líquidos. Preencha completamente sem compactar, e nivele com uma faca.</p>
             </div>
         </div>
+
         <div class="measure">
-            <img src="Generated Image August 28, 2025 - 9_31AM (1).jpeg" alt="Tablespoon with leveled sugar">
+            <img src="Generated Image August 28, 2025 - 9_31AM (1).jpeg" alt="Colher de sopa com açúcar nivelado">
             <div>
-                <h3>Tablespoon (15ml)</h3>
-                <p>Use for smaller quantities, such as baking powder or extracts. Fill and level with the back of a knife.</p>
+                <h3>Colher de Sopa (15ml)</h3>
+                <p>Use para quantidades menores, como fermento ou essências. Encha e nivele com a parte de trás de uma faca.</p>
             </div>
         </div>
+
         <div class="measure">
-            <img src="Generated Image August 28, 2025 - 9_31AM (3).jpeg" alt="Kitchen scale">
+            <img src="Generated Image August 28, 2025 - 9_31AM (3).jpeg" alt="Balança de cozinha">
             <div>
-                <h3>Kitchen Scale</h3>
-                <p>For greater precision, weigh your ingredients. Measurements in grams are more accurate than volumes.</p>
+                <h3>Balança de Cozinha</h3>
+                <p>Para maior precisão, pese os ingredientes. A medida em gramas é mais exata que volumes.</p>
             </div>
         </div>
+
         <div class="measure">
             <video controls>
                 <source src="Utensílios Essenciais para Fazer Bolo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                Seu navegador não suporta o elemento de vídeo.
             </video>
             <div>
-                <h3>Demonstration Video</h3>
-                <p>Watch a practical guide on how to use essential tools for making cakes.</p>
+                <h3>Vídeo Demonstrativo</h3>
+                <p>Assista a um guia prático de como utilizar os utensílios essenciais para fazer bolos.</p>
             </div>
         </div>
+
         <footer>
-            <p>Cake Recipe Tool © 2025 - All rights reserved</p>
-            <p style="margin-top: 20px; font-size: 1em; color: #4CAF50;">
-                <strong>If you'd like me to continue producing content like this on Brazilian cuisine, please consider supporting me!</strong><br>
-                PIX: 71926313372<br>
-                PayPal: ocelioaviap@gmail.com
-            </p>
+            <p>Ferramenta de Receitas de Bolos © 2025 - Todos os direitos reservados</p>
         </footer>
     </div>
+
     <script>
-        // Recipe data
+        // Dados das receitas
         const recipes = [
             {
                 id: 1,
-                name: "Chocolate Cake",
+                name: "Bolo de Chocolate",
                 type: "chocolate",
                 ingredients: [
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1 cup cocoa powder",
-                    "1 tablespoon baking powder",
-                    "1/2 cup oil",
-                    "2 eggs",
-                    "1 cup milk"
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 xícara de chocolate em pó",
+                    "1 colher de sopa de fermento em pó",
+                    "1/2 xícara de óleo",
+                    "2 ovos",
+                    "1 xícara de leite"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Mix dry ingredients in a bowl.",
-                    "Add wet ingredients and mix well.",
-                    "Pour batter into a greased pan.",
-                    "Bake for 35-40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Misture os ingredientes secos em uma tigela.",
+                    "Adicione os ingredientes líquidos e misture bem.",
+                    "Despeje a massa em uma forma untada.",
+                    "Asse por 35-40 minutos."
                 ]
             },
             {
                 id: 2,
-                name: "Carrot Cake",
-                type: "carrot",
+                name: "Bolo de Cenoura",
+                type: "cenoura",
                 ingredients: [
-                    "3 medium carrots",
-                    "3 eggs",
-                    "1 cup oil",
-                    "2 cups sugar",
-                    "2 cups all-purpose flour",
-                    "1 tablespoon baking powder"
+                    "3 cenouras médias",
+                    "3 ovos",
+                    "1 xícara de óleo",
+                    "2 xícaras de açúcar",
+                    "2 xícaras de farinha de trigo",
+                    "1 colher de sopa de fermento em pó"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend carrots, eggs, and oil in a blender.",
-                    "In a bowl, mix sugar and flour.",
-                    "Combine mixtures and add baking powder.",
-                    "Bake for approximately 40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata no liquidificador as cenouras, ovos e óleo.",
+                    "Em uma tigela, misture o açúcar e a farinha.",
+                    "Junte as misturas e adicione o fermento.",
+                    "Asse por aproximadamente 40 minutos."
                 ]
             },
             {
                 id: 3,
-                name: "Orange Cake",
-                type: "orange",
+                name: "Bolo de Laranja",
+                type: "laranja",
                 ingredients: [
-                    "Juice and zest of 2 oranges",
-                    "3 eggs",
-                    "1 cup oil",
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1 tablespoon baking powder"
+                    "2 laranjas (suco e raspas)",
+                    "3 ovos",
+                    "1 xícara de óleo",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend orange juice, eggs, oil, and sugar in a blender.",
-                    "Add flour and orange zest.",
-                    "Finally, add baking powder.",
-                    "Bake for 30-35 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata no liquidificador o suco de laranja, ovos, óleo e açúcar.",
+                    "Adicione a farinha e as raspas de laranja.",
+                    "Por último, adicione o fermento.",
+                    "Asse por 30-35 minutos."
                 ]
             },
             {
                 id: 4,
-                name: "Cornmeal Cake",
-                type: "cornmeal",
+                name: "Bolo de Fubá",
+                type: "fubá",
                 ingredients: [
-                    "2 cups cornmeal",
-                    "1 cup all-purpose flour",
-                    "3 eggs",
-                    "1 cup milk",
-                    "1 cup oil",
-                    "2 cups sugar",
-                    "1 tablespoon baking powder"
+                    "2 xícaras de fubá",
+                    "1 xícara de farinha de trigo",
+                    "3 ovos",
+                    "1 xícara de leite",
+                    "1 xícara de óleo",
+                    "2 xícaras de açúcar",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend all ingredients in a blender, except baking powder.",
-                    "Add baking powder and gently mix.",
-                    "Pour into a greased and floured pan.",
-                    "Bake for approximately 40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata todos os ingredientes no liquidificador, exceto o fermento.",
+                    "Adicione o fermento e misture delicadamente.",
+                    "Despeje em forma untada e enfarinhada.",
+                    "Asse por aproximadamente 40 minutos."
                 ]
             },
             {
                 id: 5,
-                name: "Corn Cake",
-                type: "corn",
+                name: "Bolo de Milho",
+                type: "milho",
                 ingredients: [
-                    "2 cans of drained corn kernels",
-                    "3 eggs",
-                    "1 cup milk",
-                    "1 cup oil",
-                    "2 cups sugar",
-                    "1 cup all-purpose flour",
-                    "1 tablespoon baking powder"
+                    "2 latas de milho verde escorridas",
+                    "3 ovos",
+                    "1 xícara de leite",
+                    "1 xícara de óleo",
+                    "2 xícaras de açúcar",
+                    "1 xícara de farinha de trigo",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend corn, eggs, milk, oil, and sugar in a blender.",
-                    "Transfer to a bowl and add flour and baking powder.",
-                    "Mix well and pour into a greased pan.",
-                    "Bake for 40-45 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata no liquidificador o milho, ovos, leite, óleo e açúcar.",
+                    "Transfira para uma tigela e adicione a farinha e o fermento.",
+                    "Misture bem e despeje em forma untada.",
+                    "Asse por 40-45 minutos."
                 ]
             },
             {
                 id: 6,
-                name: "Lemon Cake",
-                type: "lemon",
+                name: "Bolo de Limão",
+                type: "limão",
                 ingredients: [
-                    "3 eggs",
-                    "1 cup sugar",
-                    "1/2 cup oil",
-                    "Juice of 2 lemons",
-                    "Zest of 1 lemon",
-                    "2 cups all-purpose flour",
-                    "1 tablespoon baking powder"
+                    "3 ovos",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de óleo",
+                    "suco de 2 limões",
+                    "raspas de 1 limão",
+                    "2 xícaras de farinha de trigo",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Beat eggs with sugar until light and fluffy.",
-                    "Add oil, lemon juice, and lemon zest.",
-                    "Incorporate flour and finally, baking powder.",
-                    "Bake for 30-35 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata os ovos com o açúcar até obter um creme claro.",
+                    "Adicione o óleo, suco e raspas de limão.",
+                    "Incorpore a farinha e por último o fermento.",
+                    "Asse por 30-35 minutos."
                 ]
             },
             {
                 id: 7,
-                name: "Coconut Cake",
-                type: "coconut",
+                name: "Bolo de Coco",
+                type: "coco",
                 ingredients: [
-                    "3 eggs",
-                    "2 cups sugar",
-                    "1 cup milk",
-                    "2 cups all-purpose flour",
-                    "100g shredded coconut",
-                    "1 tablespoon baking powder"
+                    "3 ovos",
+                    "2 xícaras de açúcar",
+                    "1 xícara de leite",
+                    "2 xícaras de farinha de trigo",
+                    "100g de coco ralado",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Beat eggs with sugar until fluffy.",
-                    "Add milk and shredded coconut.",
-                    "Incorporate flour and baking powder.",
-                    "Bake for 35-40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata os ovos com o açúcar até ficar fofo.",
+                    "Adicione o leite e o coco ralado.",
+                    "Incorpore a farinha e o fermento.",
+                    "Asse por 35-40 minutos."
                 ]
             },
             {
                 id: 8,
-                name: "Vanilla Cake",
-                type: "vanilla",
+                name: "Bolo de Baunilha",
+                type: "baunilha",
                 ingredients: [
-                    "3 eggs",
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1 cup milk",
-                    "1/2 cup oil",
-                    "1 tablespoon baking powder",
-                    "1 teaspoon vanilla extract"
+                    "3 ovos",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 xícara de leite",
+                    "1/2 xícara de óleo",
+                    "1 colher de sopa de fermento",
+                    "1 colher de chá de essência de baunilha"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Beat eggs with sugar until pale.",
-                    "Add oil, milk, and vanilla.",
-                    "Incorporate flour and baking powder.",
-                    "Bake for 30-35 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata os ovos com o açúcar até clarear.",
+                    "Adicione o óleo, leite e baunilha.",
+                    "Incorpore a farinha e o fermento.",
+                    "Asse por 30-35 minutos."
                 ]
             },
             {
                 id: 9,
-                name: "Coffee Cake",
-                type: "coffee",
+                name: "Bolo de Café",
+                type: "café",
                 ingredients: [
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1 cup strong cooled coffee",
-                    "1/2 cup oil",
-                    "2 eggs",
-                    "1 tablespoon baking powder"
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 xícara de café forte frio",
+                    "1/2 xícara de óleo",
+                    "2 ovos",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Mix dry ingredients.",
-                    "Add wet ingredients and mix well.",
-                    "Pour into a greased pan.",
-                    "Bake for 35-40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Misture os ingredientes secos.",
+                    "Adicione os líquidos e misture bem.",
+                    "Despeje em forma untada.",
+                    "Asse por 35-40 minutos."
                 ]
             },
             {
                 id: 10,
-                name: "Apple Cake",
-                type: "apple",
+                name: "Bolo de Maçã",
+                type: "maçã",
                 ingredients: [
-                    "3 peeled and grated apples",
-                    "3 eggs",
-                    "1 cup sugar",
-                    "1/2 cup oil",
-                    "2 cups all-purpose flour",
-                    "1 tablespoon baking powder",
-                    "1 teaspoon ground cinnamon"
+                    "3 maçãs descascadas e raladas",
+                    "3 ovos",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de óleo",
+                    "2 xícaras de farinha de trigo",
+                    "1 colher de sopa de fermento",
+                    "1 colher de chá de canela em pó"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Mix grated apples with sugar.",
-                    "Add eggs and oil.",
-                    "Incorporate flour, cinnamon, and baking powder.",
-                    "Bake for 40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Misture as maçãs raladas com o açúcar.",
+                    "Adicione os ovos e o óleo.",
+                    "Incorpore a farinha, canela e fermento.",
+                    "Asse por 40 minutos."
                 ]
             },
             {
                 id: 11,
-                name: "Banana Cake",
+                name: "Bolo de Banana",
                 type: "banana",
                 ingredients: [
-                    "6 mashed ripe bananas",
-                    "3 eggs",
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1/2 cup oil",
-                    "1 tablespoon baking powder",
-                    "1 teaspoon cinnamon"
+                    "6 bananas maduras amassadas",
+                    "3 ovos",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de óleo",
+                    "1 colher de sopa de fermento",
+                    "1 colher de chá de canela"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Mix bananas with sugar and eggs.",
-                    "Add oil and cinnamon.",
-                    "Incorporate flour and baking powder.",
-                    "Bake for 40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Misture as bananas dengan o açúcar e os ovos.",
+                    "Adicione o óleo e a canela.",
+                    "Incorpore a farinha e o fermento.",
+                    "Asse por 40 minutos."
                 ]
             },
             {
                 id: 12,
-                name: "Passion Fruit Cake",
-                type: "passion fruit",
+                name: "Bolo de Maracujá",
+                type: "maracujá",
                 ingredients: [
-                    "1 cup passion fruit juice",
-                    "3 eggs",
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1/2 cup oil",
-                    "1 tablespoon baking powder"
+                    "1 xícara de suco de maracujá",
+                    "3 ovos",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de óleo",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Beat eggs with sugar.",
-                    "Add oil and passion fruit juice.",
-                    "Incorporate flour and baking powder.",
-                    "Bake for 35 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata os ovos com o açúcar.",
+                    "Adicione o óleo e o suco de maracujá.",
+                    "Incorpore a farinha e o fermento.",
+                    "Asse por 35 minutos."
                 ]
             },
             {
                 id: 13,
-                name: "White Chocolate Cake",
-                type: "white chocolate",
+                name: "Bolo de Chocolate Branco",
+                type: "chocolate branco",
                 ingredients: [
-                    "200g melted white chocolate",
-                    "3 eggs",
-                    "1 cup sugar",
-                    "2 cups all-purpose flour",
-                    "1 cup milk",
-                    "1/2 cup butter",
-                    "1 tablespoon baking powder"
+                    "200g de chocolate branco derretido",
+                    "3 ovos",
+                    "1 xícara de açúcar",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de leite",
+                    "1/2 xícara de manteiga",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Melt white chocolate in a double boiler.",
-                    "Beat butter with sugar.",
-                    "Add eggs, melted chocolate, and milk.",
-                    "Incorporate flour and baking powder.",
-                    "Bake for 35-40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Derreta o chocolate branco em banho-maria.",
+                    "Bata a manteiga com o açúcar.",
+                    "Adicione os ovos, o chocolate derretido e o leite.",
+                    "Incorpore a farinha e o fermento.",
+                    "Asse por 35-40 minutos."
                 ]
             },
             {
                 id: 14,
-                name: "Walnut Cake",
-                type: "walnut",
+                name: "Bolo de Nozes",
+                type: "nozes",
                 ingredients: [
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1 cup chopped walnuts",
-                    "3 eggs",
-                    "1 cup milk",
-                    "1/2 cup oil",
-                    "1 tablespoon baking powder"
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 xícara de nozes picadas",
+                    "3 ovos",
+                    "1 xícara de leite",
+                    "1/2 xícara de óleo",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Beat eggs with sugar.",
-                    "Add oil and milk.",
-                    "Incorporate flour, walnuts, and baking powder.",
-                    "Bake for 40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata os ovos com o açúcar.",
+                    "Adicione o óleo e o leite.",
+                    "Incorpore a farinha, nozes e fermento.",
+                    "Asse por 40 minutos."
                 ]
             },
             {
                 id: 15,
-                name: "Pineapple Cake",
-                type: "pineapple",
+                name: "Bolo de Abacaxi",
+                type: "abacaxi",
                 ingredients: [
-                    "2 cups chopped pineapple",
-                    "3 eggs",
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1/2 cup oil",
-                    "1 tablespoon baking powder"
+                    "2 xícaras de abacaxi picado",
+                    "3 ovos",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de óleo",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend pineapple in a blender.",
-                    "Mix with eggs, sugar, and oil.",
-                    "Add flour and baking powder.",
-                    "Bake for 35-40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata o abacaxi no liquidificador.",
+                    "Misture com os ovos, açúcar e óleo.",
+                    "Adicione a farinha e o fermento.",
+                    "Asse por 35-40 minutos."
                 ]
             },
             {
                 id: 16,
-                name: "Yogurt Cake",
-                type: "yogurt",
+                name: "Bolo de Iogurte",
+                type: "iogurte",
                 ingredients: [
-                    "1 pot of plain yogurt",
-                    "3 measures (using the pot) of all-purpose flour",
-                    "2 measures of sugar",
-                    "1 measure of oil",
-                    "3 eggs",
-                    "1 tablespoon baking powder"
+                    "1 pote de iogurte natural",
+                    "3 medidas (do pote) de farinha de trigo",
+                    "2 medidas de açúcar",
+                    "1 medida de óleo",
+                    "3 ovos",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Use the yogurt pot as your measuring cup.",
-                    "Mix all ingredients together.",
-                    "Beat well until you get a homogeneous batter.",
-                    "Bake for 35 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Use o pote de iogurte como medida.",
+                    "Misture todos os ingredientes.",
+                    "Bata bem até obter uma massa homogénea.",
+                    "Asse por 35 minutos."
                 ]
             },
             {
                 id: 17,
-                name: "Almond Cake",
-                type: "almond",
+                name: "Bolo de Amêndoas",
+                type: "amêndoas",
                 ingredients: [
-                    "200g ground almonds",
-                    "4 eggs",
-                    "1 cup sugar",
-                    "1/2 cup all-purpose flour",
-                    "1 teaspoon baking powder",
-                    "Lemon zest"
+                    "200g de amêndoas moídas",
+                    "4 ovos",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de farinha de trigo",
+                    "1 colher de chá de fermento",
+                    "Raspas de limão"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Separate egg whites and yolks.",
-                    "Beat yolks with sugar.",
-                    "Add ground almonds, flour, and lemon zest.",
-                    "Beat egg whites until stiff peaks form and gently fold them in.",
-                    "Bake for 30-35 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Separe as claras e as gemas.",
+                    "Bata as gemas com o açúcar.",
+                    "Adicione as amêndoas, farinha e raspas de limão.",
+                    "Bata as claras em neve e incorpore delicadamente.",
+                    "Asse por 30-35 minutos."
                 ]
             },
             {
                 id: 18,
-                name: "Churros Cake",
+                name: "Bolo de Churros",
                 type: "churros",
                 ingredients: [
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1 cup water",
-                    "1/2 cup butter",
-                    "3 eggs",
-                    "1 tablespoon baking powder",
-                    "Sugar and cinnamon for dusting"
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 xícara de água",
+                    "1/2 xícara de manteiga",
+                    "3 ovos",
+                    "1 colher de sopa de fermento",
+                    "Açúcar e canela para polvilhar"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Boil water with butter.",
-                    "Add flour all at once, stirring until it forms a ball.",
-                    "Let cool, then add eggs one at a time.",
-                    "Add sugar and baking powder.",
-                    "Bake for 35 minutes and dust with sugar and cinnamon."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Ferva a água com a manteiga.",
+                    "Adicione a farinha de uma vez, mexendo até formar uma bola.",
+                    "Deixe esfriar e adicione os ovos um a um.",
+                    "Adicione o açúcar e o fermento.",
+                    "Asse por 35 minutos e polvilhe com açúcar e canela."
                 ]
             },
             {
                 id: 19,
-                name: "Oatmeal Cake",
-                type: "oatmeal",
+                name: "Bolo de Aveia",
+                type: "aveia",
                 ingredients: [
-                    "2 cups rolled oats",
-                    "3 eggs",
-                    "1 cup brown sugar",
-                    "1 cup milk",
-                    "1/2 cup coconut oil",
-                    "1 tablespoon baking powder",
-                    "1 teaspoon cinnamon"
+                    "2 xícaras de aveia em flocos",
+                    "3 ovos",
+                    "1 xícara de açúcar mascavo",
+                    "1 xícara de leite",
+                    "1/2 xícara de óleo de coco",
+                    "1 colher de sopa de fermento",
+                    "1 colher de chá de canela"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend oats in a blender until they become flour.",
-                    "Add remaining ingredients and blend well.",
-                    "Pour into a greased pan.",
-                    "Bake for 35-40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata a aveia no liquidificador até virar farinha.",
+                    "Adicione os demais ingredientes e bata bem.",
+                    "Despeje em forma untada.",
+                    "Asse por 35-40 minutos."
                 ]
             },
             {
                 id: 20,
-                name: "Orange Chocolate Cake",
-                type: "orange chocolate",
+                name: "Bolo de Laranja com Chocolate",
+                type: "laranja chocolate",
                 ingredients: [
-                    "Juice and zest of 2 oranges",
-                    "3 eggs",
-                    "2 cups all-purpose flour",
-                    "1 cup sugar",
-                    "1/2 cup oil",
-                    "1/2 cup cocoa powder",
-                    "1 tablespoon baking powder"
+                    "2 laranjas (suco e raspas)",
+                    "3 ovos",
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1/2 xícara de óleo",
+                    "1/2 xícara de chocolate em pó",
+                    "1 colher de sopa de fermento"
                 ],
                 instructions: [
-                    "Preheat oven to 180°C (350°F).",
-                    "Blend orange juice, eggs, oil, and sugar.",
-                    "Divide the batter into two parts.",
-                    "To one part, add flour and orange zest.",
-                    "To the other part, add flour and cocoa powder.",
-                    "Layer alternately in the pan and bake for 40 minutes."
+                    "Pré-aqueça o forno a 180°C.",
+                    "Bata o suco de laranja, ovos, óleo e açúcar.",
+                    "Divida a massa em duas partes.",
+                    "Em uma parte, adicione a farinha e as raspas.",
+                    "Na outra, adicione a farinha e o chocolate.",
+                    "Coloque camadas alternadas na forma e asse por 40 minutos."
                 ]
             }
         ];
-        // Page initialization
+
+        // Inicialização da página
         document.addEventListener('DOMContentLoaded', function() {
             renderRecipeCards();
             setupSearch();
         });
-        // Render recipe cards
+
+        // Renderizar os cards de receitas
         function renderRecipeCards() {
             const recipeGrid = document.getElementById('recipeGrid');
             recipeGrid.innerHTML = '';
+            
             recipes.forEach(recipe => {
                 const card = document.createElement('div');
                 card.className = 'recipe-card';
                 card.innerHTML = `
                     <h3>${recipe.name}</h3>
-                    <p>Type: ${recipe.type}</p>
+                    <p>Tipo: ${recipe.type}</p>
                 `;
                 card.addEventListener('click', () => showRecipe(recipe.id));
                 recipeGrid.appendChild(card);
             });
         }
-        // Set up search
+
+        // Configurar a busca
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', filterRecipes);
         }
-        // Filter recipes based on search text
+
+        // Filtrar receitas conforme o texto de busca
         function filterRecipes() {
             const searchText = document.getElementById('searchInput').value.toLowerCase();
             const recipeCards = document.querySelectorAll('.recipe-card');
+            
             recipeCards.forEach(card => {
                 const recipeName = card.querySelector('h3').textContent.toLowerCase();
                 const recipeType = card.querySelector('p').textContent.toLowerCase();
+                
                 if (recipeName.includes(searchText) || recipeType.includes(searchText)) {
                     card.style.display = 'block';
                 } else {
@@ -663,38 +676,42 @@
                 }
             });
         }
-        // Show recipe details
+
+        // Mostrar os detalhes de uma receita
         function showRecipe(recipeId) {
             const recipe = recipes.find(r => r.id === recipeId);
             const recipeContent = document.getElementById('recipeContent');
+            
             recipeContent.innerHTML = `
-                <button class="back-button" onclick="hideRecipe()">← Back</button>
+                <button class="back-button" onclick="hideRecipe()">← Voltar</button>
                 <h2>${recipe.name}</h2>
                 <div class="ingredients">
-                    <h3>Ingredients:</h3>
+                    <h3>Ingredientes:</h3>
                     <ul>
                         ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
                     </ul>
                 </div>
                 <div class="instructions">
-                    <h3>Instructions:</h3>
+                    <h3>Modo de Preparo:</h3>
                     <ol>
                         ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
                     </ol>
                 </div>
             `;
+            
             recipeContent.classList.add('visible');
             document.getElementById('recipeGrid').style.display = 'none';
-            document.querySelector('h2').style.display = 'none'; // Hide "Cake Types" title
+            document.querySelector('h2').style.display = 'none'; // Esconde o título "Tipos de Bolo"
         }
-        // Hide recipe details and show the list again
+
+        // Esconder os detalhes da receita e mostrar a lista novamente
         function hideRecipe() {
             const recipeContent = document.getElementById('recipeContent');
             recipeContent.classList.remove('visible');
             document.getElementById('recipeGrid').style.display = 'grid';
-            document.querySelector('h2').style.display = 'block'; // Show "Cake Types" title
+            document.querySelector('h2').style.display = 'block'; // Mostra o título "Tipos de Bolo"
             document.getElementById('searchInput').value = '';
-            filterRecipes(); // Show all cards again
+            filterRecipes(); // Mostra todos os cards novamente
         }
     </script>
 </body>
