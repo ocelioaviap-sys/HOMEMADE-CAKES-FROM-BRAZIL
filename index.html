@@ -66,6 +66,66 @@
         .measure div {
             flex-grow: 1;
         }
+        .support-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0fff0, #e8f5e8);
+            border-radius: 15px;
+            border: 2px solid #4CAF50;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+        }
+        .support-section h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .support-section p {
+            color: #2E7D32;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .support-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .support-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 200px;
+            border: 1px solid #e0e0e0;
+        }
+        .support-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
+        }
+        .support-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .support-item h3 {
+            color: #2E7D32;
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+        .support-item p {
+            color: #555;
+            margin: 0;
+            font-size: 0.95em;
+            word-break: break-all;
+        }
         footer {
             text-align: center;
             margin-top: 40px;
@@ -149,6 +209,14 @@
             .recipe-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .support-options {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .support-item {
+                min-width: auto;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -204,6 +272,32 @@
             <div>
                 <h3>Vídeo Demonstrativo</h3>
                 <p>Assista a um guia prático de como utilizar os utensílios essenciais para fazer bolos.</p>
+            </div>
+        </div>
+
+        <!-- Seção de Apoio -->
+        <div class="support-section">
+            <h2>🇧🇷 Apoie Mais Sites sobre Comidas do Brasil</h2>
+            <p>Para mais Sites como esse sobre comidas do Brasil, ajude e dê opiniões sobre o que quer ver:</p>
+            
+            <div class="support-options">
+                <div class="support-item">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663119484589/RoxdmfoWSXllgfFw.png" alt="PayPal">
+                    <h3>PayPal</h3>
+                    <p>ocelioaviap@gmail.com</p>
+                </div>
+                
+                <div class="support-item">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663119484589/SUHgzplqmwOQTNOC.png" alt="PIX">
+                    <h3>PIX</h3>
+                    <p>71926313372</p>
+                </div>
+                
+                <div class="support-item">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663119484589/HDtNsClCUmYKRUde.png" alt="Email">
+                    <h3>Email</h3>
+                    <p>ocelioaviap@gmail.com</p>
+                </div>
             </div>
         </div>
 
@@ -718,6 +812,4 @@
     </script>
 </body>
 </html>
-
-
 
